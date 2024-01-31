@@ -64,6 +64,16 @@ void setup()
 
     logger.info("SlimeVR v" FIRMWARE_VERSION " starting up...");
 
+    // set imu arddess high to push local imu to alt address
+	pinMode(17, OUTPUT);
+	digitalWrite(17, HIGH);
+	// set imu Ground low
+	pinMode(15, OUTPUT);
+	digitalWrite(15, LOW);
+	// set imu VCC high
+	pinMode(13, OUTPUT);
+	digitalWrite(13, HIGH);
+
     statusManager.setStatus(SlimeVR::Status::LOADING, true);
 
     ledManager.setup();
